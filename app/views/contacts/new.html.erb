@@ -2,7 +2,7 @@
 
 <br>
 
-<%= form_for :contact, url: '/message' do |f| %>
+<%= form_for :contact, url: contacts_path do |f| %>
 
 <p>
   <%= f.label :email %> <br>
@@ -15,7 +15,7 @@
   </p>
 
   <p>
-    <%= f.submit "Send message" %>
+    <%= f.submit 'Send message' %>
   </p>
 
 <% end %>
