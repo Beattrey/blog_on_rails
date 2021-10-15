@@ -2,7 +2,7 @@
 <p>
   <%= @article.text %>
 </p>
-
+<hr>
 <br>
 
 <p>
@@ -22,4 +22,15 @@
   </p>
 <% end %>
 </p>
-
+<br>
+<% @article.comments.each do |comment| %>
+  <% if comment.id != nil %>
+    <p>
+      <%= comment.author %>
+    </p>
+    <p>
+      <%= comment.body %>
+    </p>
+    <hr>
+  <% end %>
+<% end %>
