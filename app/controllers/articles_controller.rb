@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
     @articles = Article.all
   end
@@ -41,6 +43,12 @@ class ArticlesController < ApplicationController
     @article.destroy
 
     redirect_to articles_path
+  end
+
+  private
+
+  def authenticate_user!
+    # code here
   end
 
   private
