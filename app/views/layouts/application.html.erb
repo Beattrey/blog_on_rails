@@ -28,10 +28,12 @@
             <a class="nav-link active" href="../articles/">Articles</a>
           </li>
           <li class="nav-item">
-            <%= link_to 'Sign In', new_user_session_path, class:"nav-link active" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Sigh out', destroy_user_session_path, class:"nav-link active", method: :delete %>
+            <% if user_signed_in? %>
+              <%= link_to 'Sigh out', destroy_user_session_path, class: "nav-link active", method: :delete %>
+
+            <% else %>
+              <%= link_to 'Sign In', new_user_session_path, class: "nav-link active" %>
+            <% end %>
           </li>
         </ul>
       </div>
