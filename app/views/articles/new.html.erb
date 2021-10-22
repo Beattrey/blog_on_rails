@@ -1,5 +1,4 @@
-<h1>New article</h1>
-
+<h1 class="h3 mb-3 fw-normal">New article</h1>
 
 <%= form_for :article, url: articles_path do |f| %>
   <% if @article && @article.errors.any? %>
@@ -11,18 +10,21 @@
     </ul>
     </p>
   <% end %>
-  <p>
-    <%= f.label :title %> <br>
-    <%= f.text_field :title %>
-  </p>
 
- <p>
-   <%= f.label :text %> <br>
-   <%= f.text_area :text %>
- </p>
+  <div class="mb-3">
+    <%= f.label :title, class:"form-label" %>
+    <%= f.text_field :title, class:"form-control" %>
+  </div>
+
+
+  <div class="mb-3">
+    <%= f.label :text, class:"form-label" %> <br>
+    <%= f.text_area :text, class:"form-control", rows:"3" %>
+  </div>
+
 
   <p>
-    <%= f.submit 'Publish' %>
+    <%= f.submit 'Publish', class:"btn btn-primary" %>
   </p>
 
 <% end %>
