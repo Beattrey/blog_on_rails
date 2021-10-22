@@ -4,13 +4,13 @@
   <div class="col-md-6">
     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
       <div class="col p-4 d-flex flex-column position-static">
-        <h3 class="mb-0"><%= link_to article.title, article_path(article), class:"titles" %></h3>
+        <h3 class="mb-0"><%= link_to article.title, article_path(article), action: 'show', class:"titles"%></h3>
         <div class="mb-1 text-muted"><%= article.updated_at %></div>
         <p class="card-text mb-auto"><%= article.text %></p>
 
         <div>
         <% if user_signed_in? %>
-          <%= link_to 'Edit', edit_article_path(article), class:"stretched-link" %>
+          <%= link_to 'Edit', edit_article_path(article) %>
           <%= link_to 'Delete', article_path(article), method: :delete,
                       data: { confirm: 'Are you sure?' } %>
         <% end %>
