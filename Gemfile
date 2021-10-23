@@ -41,11 +41,12 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
 end
 
-group :test do
+group :test, :development do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'rexml'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
