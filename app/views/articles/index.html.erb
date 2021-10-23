@@ -9,7 +9,7 @@
         <p class="card-text mb-auto"><%= article.text.truncate(140) %></p>
 
         <div>
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user.username == article.username %>
           <%= link_to 'Edit', edit_article_path(article) %>
           <%= link_to 'Delete', article_path(article), method: :delete,
                       data: { confirm: 'Are you sure?' } %>
