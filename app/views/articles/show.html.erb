@@ -2,6 +2,7 @@
 <p>
   <%= @article.text %>
 </p>
+<p>Author: <%= @article.username %></p>
 <hr>
 <br>
 
@@ -18,6 +19,7 @@
 <% end %>
 </p>
 <br>
+
 <% @article.comments.each do |comment| %>
   <% if comment.id != nil %>
     <p>
