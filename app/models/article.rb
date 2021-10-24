@@ -3,4 +3,8 @@ class Article < ApplicationRecord
   belongs_to :user, optional: true
   validates :title, presence: true
   validates :text, presence: true
+
+  def subject
+    title
+  end
 end
