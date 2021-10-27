@@ -35,3 +35,5 @@ en:
   contacts:
     contact_us: "Contact us"
     thanks: "Thanks!"
+  article:
+    new_article: "New article"
