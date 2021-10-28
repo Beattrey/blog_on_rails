@@ -11,13 +11,9 @@ feature 'Article Creation' do
   end
 
   scenario 'allows user to create article' do
-    visit new_article_path
+    create_article
 
-    fill_in 'Title', with: 'test title'
-    fill_in 'Text', with: 'test text'
-
-    click_button 'Publish'
-
-    expect(page).to have_content 'Author'
+    expect(page).to have_content 'test title123'
+    expect(page).to have_content 'test 123 text'
   end
 end

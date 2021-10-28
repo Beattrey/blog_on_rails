@@ -37,3 +37,8 @@ en:
     thanks: "Thanks!"
   article:
     new_article: "New article"
+    publish_btn: "Publish"
+    create_comment: "Create comment"
+    your_comments: "Your comments"
+  layouts:
+    hi_user: "Hi %{user}!"

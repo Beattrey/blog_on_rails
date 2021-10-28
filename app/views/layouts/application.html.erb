@@ -35,7 +35,7 @@
           </li>
           <% if user_signed_in? %>
             <li class="nav-item active nav-link">
-              <%= current_user.username %>
+              <%= I18n.t(:'layouts.hi_user', :user => current_user.username) %>
             </li>
             <li class="nav-item">
             <%= link_to 'Sigh out', destroy_user_session_path, class: "nav-link active", method: :delete %>

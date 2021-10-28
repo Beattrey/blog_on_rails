@@ -9,12 +9,12 @@
 <p>
   <%= form_for([@article, @article.comments.build]) do |f| %>
   <div class="mb-3">
-    <%= f.label :'Your comments', class:"form-label" %>
+    <%= f.label I18n.t('article.your_comments'), class:"form-label" %>
     <%= f.text_area :body, class:"form-control", rows:"3" %>
   </div>
 
   <p>
-    <%= f.submit 'Create comment', class:"btn btn-primary" %>
+    <%= f.submit I18n.t('article.create_comment'), class:"btn btn-primary" %>
   </p>
 <% end %>
 </p>
