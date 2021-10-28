@@ -3,6 +3,11 @@
   <%= @article.text %>
 </p>
 <p>Author: <%= @article.username %></p>
+<% if user_signed_in? && current_user.username == @article.username %>
+  <%= link_to I18n.t('article.edit'), edit_article_path(@article) %>
+  <%= link_to I18n.t('article.delete'), article_path(@article), method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+  <% end %>
 <hr>
 <br>
 

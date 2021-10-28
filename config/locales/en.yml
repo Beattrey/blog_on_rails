@@ -40,5 +40,8 @@ en:
     publish_btn: "Publish"
     create_comment: "Create comment"
     your_comments: "Your comments"
+    edit: "Edit"
+    edit_article: "Edit article"
+    delete: "Delete"
   layouts:
     hi_user: "Hi %{user}!"
