@@ -1,6 +1,7 @@
-class ArticlesController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+class ArticlesController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
 
   def index
     @articles = Article.all
@@ -10,8 +11,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  def new
-  end
+  def new; end
 
   def create
     @article = Article.new(article_params)
@@ -36,7 +36,6 @@ class ArticlesController < ApplicationController
     else
       render action: 'edit'
     end
-
   end
 
   def destroy

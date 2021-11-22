@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Comment do
   describe 'validation' do
-    it { should validate_presence_of :body }
-    it { should validate_length_of(:body).is_at_most(4000) }
+    it { is_expected.to validate_presence_of :body }
+    it { is_expected.to validate_length_of(:body).is_at_most(4000) }
   end
+
   describe 'associations' do
-    it { should belong_to :article }
+    it { is_expected.to belong_to :article }
   end
 end
-
-

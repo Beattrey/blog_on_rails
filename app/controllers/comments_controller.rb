@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, :only => [:create]
+  before_action :authenticate_user!, only: [:create]
 
   def create
     @article = Article.find(params[:article_id])
@@ -8,7 +10,6 @@ class CommentsController < ApplicationController
     @comment.save
 
     redirect_to @article
-
   end
 
   private

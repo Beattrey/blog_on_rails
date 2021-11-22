@@ -1,18 +1,20 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'Edit article' do
-  before(:each) do
+describe 'Edit article' do
+  before do
     sign_up
     create_article
   end
 
-  scenario 'allows user to visit articles page' do
+  it 'allows user to visit articles page' do
     click_link I18n.t('article.edit')
 
     expect(page).to have_content I18n.t('article.edit_article')
   end
 
-  scenario 'allows user to edit article' do
+  it 'allows user to edit article' do
     click_link I18n.t('article.edit')
 
     fill_in 'article_title', with: 'Edited test title 123'

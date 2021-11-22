@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def create_article
   visit new_article_path
 
