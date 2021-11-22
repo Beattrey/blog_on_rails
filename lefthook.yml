@@ -14,8 +14,6 @@
 pre-commit:
    parallel: true
    commands:
-     rubocop:
-       run: bundle exec rubocop
      bundler-leak:
       run: bundle leak check --update
      bundler-audit:

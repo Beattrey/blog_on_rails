@@ -22,7 +22,7 @@ jobs:
       - ruby/bundle-install
       - run :
           name: Lefthook
-          command: lefthook install && lefthook run pre-commit
+          command: bundle exec lefthook run pre-commit
 
 
 # Invoke jobs via workflows
