@@ -4,46 +4,46 @@ version: 2.1
 orbs:
   ruby: circleci/ruby@0.1.2
 
-  executors:
-    default: 
-      working_directory: ~/cars_management
-      description: Ruby docker
-      docker:
-        - image: circleci/ruby:3.0.2
-  caches:
-    - &bundle_cache_full v1-cars_management{{ checksum "Gemfile.lock" }}
-    - &bundle_cache v1-cars_management
+executors:
+  default:
+    working_directory: ~/cars_management
+    description: Ruby docker
+    docker:
+      - image: circleci/ruby:3.0.2
+caches:
+  - &bundle_cache_full v1-cars_management{{ checksum "Gemfile.lock" }}
+  - &bundle_cache v1-cars_management
 
-  commands:
-    defaults:
-      steps:
-        - checkout
-        - restore_cache:
-            keys:
-              - *bundle_cache_full
-              - *bundle_cache
-        - run:
-            name: install require gems
-            command: bundle install --path vendor/bundle
-        - save_cache:
-            key: *bundle_cache_full
-            paths:
-              - vendor/bundle
-    run_linters:
-      description: start lefthook
-      steps:
-        - run:
-            name: lefthook
-            command: bundle exec lefthook run pre-commit
-  jobs:
-    lintering:
-      executor: default
-      steps:
-        - defaults
-        - run_linters
+commands:
+  defaults:
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - *bundle_cache_full
+            - *bundle_cache
+      - run:
+          name: install require gems
+          command: bundle install --path vendor/bundle
+      - save_cache:
+          key: *bundle_cache_full
+          paths:
+            - vendor/bundle
+  run_linters:
+    description: start lefthook
+    steps:
+      - run:
+          name: lefthook
+          command: bundle exec lefthook run pre-commit
+jobs:
+  lintering:
+    executor: default
+    steps:
+      - defaults
+      - run_linters
 
-  workflows:
-    version: 2
-    build:
-      jobs:
-      - lintering
+workflows:
+  version: 2
+  build:
+    jobs:
+    - lintering
